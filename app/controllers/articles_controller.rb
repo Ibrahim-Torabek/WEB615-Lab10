@@ -78,7 +78,7 @@ class ArticlesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The article you're looking for cannot be found"
     respond_to do |format|

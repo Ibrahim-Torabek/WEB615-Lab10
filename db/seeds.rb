@@ -37,7 +37,7 @@ User.all.destroy_all
       comment.uuid = comment_uuid
       comment.slug = comment_uuid
       if comment.save
-        p "Comment #{ii} has been saved for article #{article.title}"
+        p "Comment #{ii} has been saved for article #{article.uuid}"
       else
         p comment.errors
       end
