@@ -1,12 +1,8 @@
-# WEB615 - Lab 8
+# WEB615 - Lab 9
+### Based on Lab 8
 
 ### Author: Ibrahim(Wusiman Yibulayin)
 
 ## Tasks to do
-### Part 1 - Get your application started
+### Part 1 - Prepare the application for deployment
 
-### Part 2 - Testing Comments
-
-# Result
-![](coverage/index.html)
-![Result](result.png)

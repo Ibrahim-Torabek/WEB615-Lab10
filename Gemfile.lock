@@ -116,6 +116,8 @@ GEM
       railties (>= 5.0.0)
     ffi (1.15.5)
     formatador (1.1.0)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     guard (2.18.0)
@@ -343,6 +345,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker!
+  friendly_id (~> 5.4.0)
   guard
   guard-rails
   guard-rspec
