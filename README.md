@@ -9,4 +9,4 @@
 
 # Result
 ![](coverage/index.html)
-![Result](coverage/result.png)
+![Result](result.png)
