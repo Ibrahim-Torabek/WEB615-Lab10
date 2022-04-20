@@ -18,9 +18,15 @@
         <% @comments.each do |comment| %>
           <tr>
             <td><%= comment.message %></td>
-            <td><%= link_to 'Show', comment %></td>
-            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if policy(comment).show? %>
+              <td><%= link_to 'Show', comment %></td>
+            <% end %>
+            <% if policy(comment).edit? %>
+              <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+            <% end %>
+            <% if policy(comment).destroy? %>
+              <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
         </tbody>

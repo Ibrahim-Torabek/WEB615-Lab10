@@ -9,15 +9,19 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    true
   end
 
   def show?
-    false
+    scope.where(id: record.id).exists?
   end
 
   def create?
-    false
+    if user.is_admin? # This is a method on the user model
+      true
+    else
+      false # Always be explicit not implicit with your code
+    end
   end
 
   def new?
@@ -25,7 +29,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    create?
   end
 
   def edit?
@@ -33,7 +37,11 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    create?
+  end
+
+  def scope
+    Pundit.policy_scope!(user, record.class)
   end
 
   class Scope

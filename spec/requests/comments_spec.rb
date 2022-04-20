@@ -73,45 +73,45 @@ RSpec.describe "Comments", type: :request do
     end
   end
 
-  # describe 'GET #new' do
-  #   describe 'valid: ' do
-  #     it 'should create a new comment with valid attributes' do
-  #       @article = FactoryBot.create(:article)
-  #       click_link 'Comments'
-  #       expect(current_path).to eq(comments_path)
-  #
-  #       click_link 'New Comment'
-  #       expect(current_path).to eq(new_comment_path)
-  #
-  #       fill_in 'comment_message', with: 'New_Comment'
-  #       select @article.title, from: 'comment[article_id]'
-  #       select @user.email, from: 'comment[user_id]'
-  #       click_button 'Create Comment'
-  #       # save_and_open_page
-  #       expect(page).to have_content('Comment was successfully created.')
-  #       expect(page).to have_content('New_Comment')
-  #       #expect(page).to have_content('New_content_with_a_lot_of_typing')
-  #     end
-  #   end
-  #
-  #   describe 'invalid: ' do
-  #     it 'should not create a new article with invalid attributes' do
-  #       @article = FactoryBot.create(:article)
-  #       click_link 'Comments'
-  #       expect(current_path).to eq(comments_path)
-  #
-  #       click_link 'New Comment'
-  #       expect(current_path).to eq(new_comment_path)
-  #
-  #       fill_in 'comment_message', with: ''
-  #       select @article.title, from: 'comment[article_id]'
-  #       select @user.email, from: 'comment[user_id]'
-  #       click_button 'Create Comment'
-  #       # save_and_open_page
-  #       expect(page).to have_content("Message can't be blank")
-  #     end
-  #   end
-  # end
+  describe 'GET #new' do
+    describe 'valid: ' do
+      it 'should create a new comment with valid attributes' do
+        @article = FactoryBot.create(:article)
+        click_link 'Comments'
+        expect(current_path).to eq(comments_path)
+
+        click_link 'New Comment'
+        expect(current_path).to eq(new_comment_path)
+
+        fill_in 'comment_message', with: 'New_Comment'
+        select @article.title, from: 'comment[article_id]'
+        select @user.email, from: 'comment[user_id]'
+        click_button 'Create Comment'
+        # save_and_open_page
+        expect(page).to have_content('Comment was successfully created.')
+        expect(page).to have_content('New_Comment')
+        #expect(page).to have_content('New_content_with_a_lot_of_typing')
+      end
+    end
+
+    describe 'invalid: ' do
+      it 'should not create a new article with invalid attributes' do
+        @article = FactoryBot.create(:article)
+        click_link 'Comments'
+        expect(current_path).to eq(comments_path)
+
+        click_link 'New Comment'
+        expect(current_path).to eq(new_comment_path)
+
+        fill_in 'comment_message', with: ''
+        select @article.title, from: 'comment[article_id]'
+        select @user.email, from: 'comment[user_id]'
+        click_button 'Create Comment'
+        # save_and_open_page
+        expect(page).to have_content("Message can't be blank")
+      end
+    end
+  end
   #
   #
   # describe 'GET #edit' do

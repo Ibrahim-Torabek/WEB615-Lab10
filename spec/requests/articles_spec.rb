@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Articles', type: :request do
   before(:each) do
-    @user = FactoryBot.create(:user) # Create the user
+    @user = FactoryBot.create(:admin) # Create the user
 
     # Set up the basic premise of the test by making sure that you have to log in
     visit root_path
@@ -74,122 +74,122 @@ RSpec.describe 'Articles', type: :request do
     end
   end
 
-  # describe 'GET #new' do
-  #   describe 'valid: ' do
-  #     it 'should create a new article with valid attributes' do
-  #       click_link 'Articles'
-  #       expect(current_path).to eq(articles_path)
-  #
-  #       click_link 'New Article'
-  #       expect(current_path).to eq(new_article_path)
-  #
-  #       fill_in 'article_title', with: 'New_Article'
-  #       fill_in 'article_content', with: 'New_content_with_a_lot_of_typing'
-  #       select @user.email, from: 'article[user_id]'
-  #       click_button 'Create Article'
-  #       # save_and_open_page
-  #       expect(page).to have_content('Article was successfully created.')
-  #       expect(page).to have_content('New_Article')
-  #       expect(page).to have_content('New_content_with_a_lot_of_typing')
-  #     end
-  #   end
-  #
-  #   describe 'invalid: ' do
-  #     it 'should not create a new article with invalid attributes' do
-  #       click_link 'Articles'
-  #       expect(current_path).to eq(articles_path)
-  #
-  #       click_link 'New Article'
-  #       expect(current_path).to eq(new_article_path)
-  #
-  #       fill_in 'article_title', with: ''
-  #       fill_in 'article_content', with: ''
-  #       select @user.email, from: 'article[user_id]'
-  #       click_button 'Create Article'
-  #       # save_and_open_page
-  #       expect(page).to have_content("Title can't be blank")
-  #       expect(page).to have_content("Content can't be blank")
-  #     end
-  #   end
-  # end
-  #
-  # describe 'GET #edit' do
-  #   describe 'valid: ' do
-  #     it 'should update an article with valid attributes' do
-  #       @article = FactoryBot.create(:article)
-  #       click_link 'Articles'
-  #       expect(current_path).to eq(articles_path)
-  #
-  #       expect(page).to have_content(@article.title)
-  #
-  #       click_link 'Show'
-  #       expect(current_path).to eq(article_path(@article))
-  #
-  #       expect(page).to have_content(@article.title)
-  #       expect(page).to have_content(@article.content)
-  #       expect(page).to have_content(@article.user.email)
-  #
-  #       @new_user = FactoryBot.create(:user)
-  #
-  #       click_link 'Edit'
-  #       expect(current_path).to eq(edit_article_path(@article))
-  #
-  #       fill_in 'article_title', with: 'Edited_Article_Title'
-  #       fill_in 'article_content', with: 'New_New_Article_Content'
-  #       select @new_user.email, from: 'article[user_id]'
-  #       click_button 'Update Article'
-  #
-  #       expect(page).to have_content('Article was successfully updated.')
-  #       expect(page).to have_content('Edited_Article_Title')
-  #       expect(page).to have_content('New_New_Article_Content')
-  #       expect(page).to have_content(@new_user.email)
-  #       expect(current_path).to eq(article_path(@article))
-  #       # save_and_open_page
-  #     end
-  #   end
-  #
-  #   describe 'invalid: ' do
-  #     it 'should not update an article with invalid attributes' do
-  #       @article = FactoryBot.create(:article)
-  #       click_link 'Articles'
-  #       expect(current_path).to eq(articles_path)
-  #
-  #       expect(page).to have_content(@article.title)
-  #
-  #       click_link 'Show'
-  #       expect(current_path).to eq(article_path(@article))
-  #
-  #       expect(page).to have_content(@article.title)
-  #       expect(page).to have_content(@article.content)
-  #       expect(page).to have_content(@article.user.email)
-  #
-  #       click_link 'Edit'
-  #       expect(current_path).to eq(edit_article_path(@article))
-  #
-  #       fill_in 'article_title', with: ''
-  #       fill_in 'article_content', with: ''
-  #       click_button 'Update Article'
-  #
-  #       expect(page).to have_content("Title can't be blank")
-  #       expect(page).to have_content("Content can't be blank")
-  #       # save_and_open_page
-  #     end
-  #   end
-  # end
-  #
-  # describe 'DELETE #destroy' do
-  #   describe 'valid: ' do
-  #     it 'should destroy an article when destroy is clicked' do
-  #       @article = FactoryBot.create(:article)
-  #       click_link 'Articles'
-  #       expect(current_path).to eq(articles_path)
-  #
-  #       expect(page).to have_content(@article.title)
-  #       click_link 'Destroy'
-  #
-  #       expect(current_path).to eq(articles_path)
-  #       expect(page).to have_content('Article was successfully destroyed.')
-  #     end
-  #   end
-  # end
+  describe 'GET #new' do
+    describe 'valid: ' do
+      it 'should create a new article with valid attributes' do
+        click_link 'Articles'
+        expect(current_path).to eq(articles_path)
+
+        click_link 'New Article'
+        expect(current_path).to eq(new_article_path)
+
+        fill_in 'article_title', with: 'New_Article'
+        fill_in 'article_content', with: 'New_content_with_a_lot_of_typing'
+        select @user.email, from: 'article[user_id]'
+        click_button 'Create Article'
+        # save_and_open_page
+        expect(page).to have_content('Article was successfully created.')
+        expect(page).to have_content('New_Article')
+        expect(page).to have_content('New_content_with_a_lot_of_typing')
+      end
+    end
+
+    describe 'invalid: ' do
+      it 'should not create a new article with invalid attributes' do
+        click_link 'Articles'
+        expect(current_path).to eq(articles_path)
+
+        click_link 'New Article'
+        expect(current_path).to eq(new_article_path)
+
+        fill_in 'article_title', with: ''
+        fill_in 'article_content', with: ''
+        select @user.email, from: 'article[user_id]'
+        click_button 'Create Article'
+        # save_and_open_page
+        expect(page).to have_content("Title can't be blank")
+        expect(page).to have_content("Content can't be blank")
+      end
+    end
+  end
+
+  describe 'GET #edit' do
+    describe 'valid: ' do
+      it 'should update an article with valid attributes' do
+        @article = FactoryBot.create(:article)
+        click_link 'Articles'
+        expect(current_path).to eq(articles_path)
+
+        expect(page).to have_content(@article.title)
+
+        click_link 'Show'
+        expect(current_path).to eq(article_path(@article))
+
+        expect(page).to have_content(@article.title)
+        expect(page).to have_content(@article.content)
+        expect(page).to have_content(@article.user.email)
+
+        @new_user = FactoryBot.create(:user)
+
+        click_link 'Edit'
+        expect(current_path).to eq(edit_article_path(@article))
+
+        fill_in 'article_title', with: 'Edited_Article_Title'
+        fill_in 'article_content', with: 'New_New_Article_Content'
+        select @new_user.email, from: 'article[user_id]'
+        click_button 'Update Article'
+
+        expect(page).to have_content('Article was successfully updated.')
+        expect(page).to have_content('Edited_Article_Title')
+        expect(page).to have_content('New_New_Article_Content')
+        expect(page).to have_content(@new_user.email)
+        expect(current_path).to eq(article_path(@article))
+        # save_and_open_page
+      end
+    end
+
+    describe 'invalid: ' do
+      it 'should not update an article with invalid attributes' do
+        @article = FactoryBot.create(:article)
+        click_link 'Articles'
+        expect(current_path).to eq(articles_path)
+
+        expect(page).to have_content(@article.title)
+
+        click_link 'Show'
+        expect(current_path).to eq(article_path(@article))
+
+        expect(page).to have_content(@article.title)
+        expect(page).to have_content(@article.content)
+        expect(page).to have_content(@article.user.email)
+
+        click_link 'Edit'
+        expect(current_path).to eq(edit_article_path(@article))
+
+        fill_in 'article_title', with: ''
+        fill_in 'article_content', with: ''
+        click_button 'Update Article'
+
+        expect(page).to have_content("Title can't be blank")
+        expect(page).to have_content("Content can't be blank")
+        # save_and_open_page
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    describe 'valid: ' do
+      it 'should destroy an article when destroy is clicked' do
+        @article = FactoryBot.create(:article)
+        click_link 'Articles'
+        expect(current_path).to eq(articles_path)
+
+        expect(page).to have_content(@article.title)
+        click_link 'Destroy'
+
+        expect(current_path).to eq(articles_path)
+        expect(page).to have_content('Article was successfully destroyed.')
+      end
+    end
+  end
 end

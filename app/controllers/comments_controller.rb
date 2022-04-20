@@ -16,27 +16,35 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[show edit update destroy]
 
+
   # GET /comments
   # GET /comments.json
   def index
+    authorize Comment
     @comments = Comment.paginate(page: params[:page], per_page: params[:per_page] ||= 30).order(created_at: :desc)
   end
 
   # GET /comments/1
   # GET /comments/1.json
-  def show; end
+  def show
+    authorize @comment
+  end
 
   # GET /comments/new
   def new
+    authorize Comment
     @comment = Comment.new
   end
 
   # GET /comments/1/edit
-  def edit; end
+  def edit
+    authorize @comment
+  end
 
   # POST /comments
   # POST /comments.json
   def create
+    authorize Comment
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
@@ -53,6 +61,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    authorize @comment
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
@@ -67,6 +76,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    authorize @comment
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }

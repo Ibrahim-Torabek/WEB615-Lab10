@@ -46,3 +46,12 @@ User.all.destroy_all
     p article.errors
   end
 end
+
+email = 'torabek@gmail.com'
+user = User.find_or_create_by(email: email)
+user.password = 'asdasd'
+user.role = User::ADMIN_ROLE
+if user.save
+  p "Admin User torabek@gmail.com created, password: asdasd"
+  user
+end
