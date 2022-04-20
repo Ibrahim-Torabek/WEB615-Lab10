@@ -16,9 +16,11 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
+
   # GET /articles
   # GET /articles.json
   def index
+    authorize Article
     @articles = Article.paginate(page: params[:page], per_page: params[:per_page] ||= 30).order(created_at: :desc)
   end
 

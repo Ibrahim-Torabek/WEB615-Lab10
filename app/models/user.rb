@@ -34,4 +34,16 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :validatable
+
+  ADMIN_ROLE = "Admin"
+  NON_ADMIN_ROLE = "Non-Admin"
+  POSSIBLE_ROLES = [ADMIN_ROLE, NON_ADMIN_ROLE].freeze
+
+  def is_admin?
+    if self.role == ADMIN_ROLE
+      true
+    else
+      false
+    end
+  end
 end
